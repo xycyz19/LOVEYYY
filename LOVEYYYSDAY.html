@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Birthday Surprise</title>
+    <script>
+        const password = prompt('Enter the password to view this page:');
+        if (password !== '05202024') {
+            alert('Incorrect password. Redirecting...');
+            window.location.href = 'https://www.google.com';
+        }
+    </script>
+    <style>
+        body {
+            text-align: center;
+            background-color: #fce4ec;
+        }
+
+        h1 {
+            color: #d81b60;
+            animation: fadeIn 2s;
+        }
+
+        .flower-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .flower-inner {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .flower-container.flipped .flower-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flower-front, .flower-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flower-back {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffebee;
+            color: #d81b60;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>HAPPY BIRTHDAY LOVEYYYY!❤️ YOU'RE THE BEST BOYFRIEND EVER😘✨✨</h1>
+    <p>Click on the giphy below to reveal a special message!</p>
+
+    <div class="flower-container" onclick="flipFlower(this, 'ANOTHER YEAR OLDER, BUT EVEN MORE HANDSOME! I LOVE YOU LOVEYYY😍')">
+        <div class="flower-inner">
+            <div class="flower-front">
+                <img src="flower_.gif" alt="Flower 1" width="150">
+            </div>
+            <div class="flower-back"></div>
+        </div>
+    </div>
+    <div class="flower-container" onclick="flipFlower(this, 'To the love of my life—may your day be as special as you are! ❤️! 🌼')">
+        <div class="flower-inner">
+            <div class="flower-front">
+                <img src="birthday.gif" alt="Flower 2" width="150">
+            </div>
+            <div class="flower-back"></div>
+        </div>
+    </div>
+    <div class="flower-container" onclick="flipFlower(this, 'No words can express how much I love you. ! 💕')">
+        <div class="flower-inner">
+            <div class="flower-front">
+                <img src="ily.gif" alt="Flower 3" width="150">
+            </div>
+            <div class="flower-back"></div>
+        </div>
+    </div>
+
+    <p>"If I could, I’d give you the stars, the moon, and all the love in my heart. But since I can’t, I’ll spend my life making sure you feel as cherished as you truly are." 💖</p>
+
+    <script>
+        let currentFlipped = null;
+
+        function flipFlower(element, message) {
+            if (currentFlipped && currentFlipped !== element) {
+                currentFlipped.classList.remove('flipped');
+            }
+            const backDiv = element.querySelector('.flower-back');
+            backDiv.textContent = message;
+            element.classList.toggle('flipped');
+            currentFlipped = element.classList.contains('flipped') ? element : null;
+        }
+    </script>
+</body>
+</html>
